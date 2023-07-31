@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+const {DB_URI} = require('./config')
 
-const uri = "mongodb+srv://adonosoaster:o44gQL0oaUoLRT6E@cluster0.d223m2y.mongodb.net/?retryWrites=true&w=majority";
-// acá deben agregar su usuario y password : const uri = "mongodb+srv://<user>:<password>@cluster0.d223m2y.mongodb.net/?retryWrites=true&w=majority";
+const uri = DB_URI;
+
 
 const connetDB = () => {
     mongoose.connect(uri)
