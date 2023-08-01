@@ -22,8 +22,8 @@ async function getGarmentById(req, res) {
 async function createGarment(req, res) {
   try {
     const { name, color, size, price, description, image } = req.body;
-
-    let createdGarment = await clothesService.createGarment(req.body);
+    let data = { name, color, size, price, description, image };
+    let createdGarment = await clothesService.createGarment(data);
 
     if (createdGarment) {
       res.status(201).json(createdGarment);
@@ -37,9 +37,9 @@ async function createGarment(req, res) {
 
 async function deleteGarmentById(req, res) {
   try {
-    const { _id } = req.params;
+    const id = req.params.id;
 
-    let deletedGarment = await clothesService.deleteGarmentById(_id);
+    let deletedGarment = await clothesService.deleteGarmentById(id);
     if (deletedGarment) {
       res.status(200).json(deletedGarment);
     } else {
