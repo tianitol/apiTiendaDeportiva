@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const shoesSchema = new Schema(
+const shoeSchema = new Schema(
     {
         name:{
             type:String,
@@ -16,9 +16,8 @@ const shoesSchema = new Schema(
         },
         image:{
             type:String,
-            require:true
         }
     }
 )
-const Shoes = mongoose.model(Shoes, shoesSchema);
-module.exports = Shoes;
+const Shoe = mongoose.model('Shoe', shoeSchema);
+module.exports = Shoe;
