@@ -17,7 +17,10 @@ const createShoe = async(req,res) =>{
         name : req.body.name,
         price: req.body.price,
         description:req.body.description,
-        image:req.body.image
+        image:req.body.image,
+        size:req.body.size,
+        brand:req.body.brand,
+        gender:req.body.gender
     });
     console.log("Llega hasta guardar el zapato");
     try {
@@ -28,11 +31,53 @@ const createShoe = async(req,res) =>{
         throw new Error(error)
     }
 };
+//get
+const getShoeById = async (shoeId) =>{
+    try {
+        const shoe = await Shoe.findById(shoeId);
+        if (!shoe) {
+            return null;
+        }
+        return shoe;
+    } catch (error) {
+        throw new Error('Error al obtener el zapato completo')
+    }
+};
+
+//put
+const updateShoeByIdS = async(shoeId, data)=>{
+    try {
+        console.log("llego acá", shoeId);
+        const updateShoe = await Shoe.findOneAndUpdate({_id: shoeId}, data);
+        if (!updateShoe) {
+        return null;
+    }
+        return updateShoe; 
+    } catch (error) {
+        throw new Error('Error al encontrar zapato');
+    }
+};
+//DELETE
+const deleteShoeById = async (shoeId) =>{
+    try {
+        const deleteShoe = await Shoe.findByIdAndDelete(shoeId);
+        console.log(deleteShoe);
+        if (!deleteShoe) {
+            return null;
+        }
+        return deleteShoe;
+    } catch (error) {
+        throw new Error('Error al encontrar zapato')
+    }
+}
 
 
 
 
 module.exports = {
     getShoes,
-    createShoe
+    createShoe,
+    getShoeById,
+    updateShoeByIdS,
+    deleteShoeById
 }

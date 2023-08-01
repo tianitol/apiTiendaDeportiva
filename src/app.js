@@ -7,6 +7,7 @@ const shoeRouter = require('./router/shoeRouter');
 const {PORT} = require('./config')
 
 app.use(cors());
+
 connectDB()
 
 app.use(cookieParser());

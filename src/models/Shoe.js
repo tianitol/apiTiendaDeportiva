@@ -16,6 +16,19 @@ const shoeSchema = new Schema(
         },
         image:{
             type:String,
+            require:true,
+        },
+        size:{
+            type:String,
+            require:true,
+        },
+        brand:{
+            type:String,
+            require:true,
+        },
+        gender:{
+            type:String,
+            require:true,
         }
     }
 )
