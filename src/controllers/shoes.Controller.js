@@ -2,7 +2,7 @@ const shoeServices = require('../services/shoeServices');
 //post
 const getShoes = async (req,res)=>{
     try {
-        console.log("Entré al controllers");
+        //console.log("Entré al controllers");
         const shoes = await shoeServices.getShoes();
         if (shoes.length === 0) {
             return res.status(404).json({error:"Elemento no encontrado"})
