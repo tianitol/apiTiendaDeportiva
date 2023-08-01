@@ -18,16 +18,9 @@ const getGarmentById = async (id) => {
   }
 };
 
-const createGarment = async (name, color, size, price, description, image) => {
+const createGarment = async (data) => {
   try {
-    let createdGarment = new Clothes({
-      name,
-      color,
-      size,
-      price,
-      description,
-      image,
-    });
+    let createdGarment = new Clothes(data);
     createdGarment.save();
 
     return createdGarment;
