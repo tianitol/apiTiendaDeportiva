@@ -45,19 +45,9 @@ const deleteGarmentById = async (id) => {
   }
 };
 
-const updateGarment = async (
-  id,
-  { name, color, size, price, description, image }
-) => {
+const updateGarment = async (id, data) => {
   try {
-    let updatedGarment = await Clothes.findByIdAndUpdate(id, {
-      name,
-      color,
-      size,
-      price,
-      description,
-      image,
-    });
+    let updatedGarment = await Clothes.findByIdAndUpdate(id, data);
     return updatedGarment;
   } catch (error) {
     throw new Error(error);
