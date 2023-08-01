@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { validateCreateAccessory } = require('../middlewares/validateAccessory');
+const { validateAccessoryData, validateId } = require('../middlewares/validateAccessory');
 
 const {
     getAccessories,
@@ -10,18 +10,16 @@ const {
     updateAccessory,
     deleteAccessory } = require('../controllers/accessoryController');
 
-router.post('/accessories', validateCreateAccessory, createAccessory); //crear
+router.post('/accessories', validateAccessoryData, createAccessory); //crear
 
-router.get('/accessories/:id', getAccessoryById); //traer por id
+router.get('/accessories/:id', validateId, getAccessoryById); //traer por id
 
 router.get('/accessories', getAccessories); //listar 
 
-router.put('/accessories/:id', validateCreateAccessory, fullyUpdateAccessory);//actualizar por id
+router.put('/accessories/:id', validateAccessoryData, fullyUpdateAccessory);//actualizar por id
 
-router.patch('/accessories/:id', updateAccessory) //actualizar parcialmente
+router.patch('/accessories/:id', validateId, updateAccessory) //actualizar parcialmente
 
-router.delete('/accessories/:id', deleteAccessory); //eliminar
-
-
+router.delete('/accessories/:id', validateId, deleteAccessory); //eliminar
 
 module.exports = router;
