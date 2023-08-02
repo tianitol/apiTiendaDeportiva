@@ -56,9 +56,9 @@ const deleteAccessory = async (req, res) => {
   try {
     const { id } = req.params
 
-   const response = await accessoryServices.deleteAccessory(id)
+    const response = await accessoryServices.deleteAccessory(id)
 
-   if (!response) return res.status(400).json({ message: 'No se encontró el accesorio.' })
+    if (!response) return res.status(400).json({ message: 'No se encontró el accesorio.' })
 
     res.status(200).json({ message: 'Accesorio eliminado exitosamente.' })
 
@@ -97,7 +97,7 @@ const updateAccessory = async (req, res) => {
       res.status(400).json({ message: 'Cuerpo de la solicitud sin datos.' })
 
     } else {
-        const { name, category, description, image, price } = req.body
+      const { name, category, description, image, price } = req.body
 
       await accessoryServices.updateAccessory(id, {
         name,
