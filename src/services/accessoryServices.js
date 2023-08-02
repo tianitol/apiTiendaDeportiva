@@ -1,6 +1,6 @@
 const AccessoryModel = require("../models/Accessory");
 
-console.log(AccessoryModel);
+// console.log(AccessoryModel);
 
 // Obtener accesorios
 const getAccessories = async () => {
