@@ -45,13 +45,13 @@ const getAccessoryById = async (id) => {
 const deleteAccessory = async (id) => {
   try {
 
-    const searchedAccessory = await AccessoryModel.findById(id)
+    const deletedObj = await AccessoryModel.deleteOne({ _id: id })
 
-    if (searchedAccessory) {
-      await AccessoryModel.deleteOne({ _id: id })
-    } else {
-      return null
-    }
+    const { deletedCount } = deletedObj
+
+    if (deletedCount < 1) return null
+
+    return true
 
   } catch (error) {
     throw new Error(error)
