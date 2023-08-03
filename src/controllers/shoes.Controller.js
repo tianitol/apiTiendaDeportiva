@@ -54,6 +54,7 @@ const updateShoeById = async (req,res) =>{
         res.status(400).json({error:'Error al actualizar zapato'})
     }
 };
+
 const deleteShoeById = async(req,res) =>{
     const shoeId = req.params.id;
     console.log("delete", shoeId);
