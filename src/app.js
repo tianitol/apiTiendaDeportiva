@@ -2,7 +2,6 @@ const express = require("express");
 const connectDB = require("./db");
 const cors = require("cors");
 const app = express();
-
 const cookieParser = require("cookie-parser");
 const shoeRouter = require("./router/shoeRouter");
 const clothesRouter = require("./router/clothesRouter");
@@ -18,7 +17,6 @@ app.use(cookieParser());
 app.use(express.json());
 
 //acá las rutas
-
 app.use("/api", shoeRouter);
 app.use("/api", clothesRouter);
 app.use("/api", accessoryRouter);
