@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const shoeRouter = require("./router/shoeRouter");
 const clothesRouter = require("./router/clothesRouter");
 const accessoryRouter = require("./router/accessoryRouter");
+const userRouter = require("./router/userRouter");
 const { PORT } = require("./config");
 
 app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use("/api", shoeRouter);
 app.use("/api", clothesRouter);
 app.use("/api", accessoryRouter);
+app.use("/api", userRouter);
 
 app.listen(PORT, () => {
   console.log("Server listening on port 3000");
