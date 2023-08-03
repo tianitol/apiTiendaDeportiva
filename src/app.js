@@ -9,7 +9,7 @@ const accessoryRouter = require('./router/accessoryRouter');
 const { PORT } = require("./config");
 
 
-app.use(cors());
+app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
 connectDB();
 
 app.use(cookieParser());
